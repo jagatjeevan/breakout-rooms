@@ -24,6 +24,10 @@ function pass(json_object) {
   original = currentState = json_object;
 }
 
+function updateTeamsize() {
+  teamSize = document.querySelector("#teamSize").value;
+}
+
 function clearTeam() {
   for (let i = 0; i < teamSize; i++) {
     $(`#${i + 1} article`).html("");
@@ -32,11 +36,26 @@ function clearTeam() {
 
 function toggleLocation() {
   showLocation = !showLocation;
-  clearTeam();
   displayIntoTeams();
 }
 
+function generateTeams() {
+  let html = "";
+  for (let i = 0; i < teamSize; i++) {
+    html += `
+    <section id="${i + 1}">
+        <header>Team ${i + 1}</header>
+        <article id="content${i + 1}"></article>
+      </section>
+    `;
+  }
+
+  $("#report-container").html(html);
+}
+
 function displayIntoTeams() {
+  clearTeam();
+  generateTeams();
   const arr = aggregatedPeople;
   for (let i = 0; i < arr.length; i++) {
     let selector;

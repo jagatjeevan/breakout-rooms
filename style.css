@@ -58,7 +58,7 @@ body {
 .team-container {
   margin: var(--app-spacer);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-gap: 10px;
 }
 

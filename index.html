@@ -28,6 +28,18 @@
             name="files[]"
             style="width: 90%"
           />
+          <input
+            type="number"
+            id="teamSize"
+            value="5"
+            style="padding: 6px 25px; font-size: inherit; width: 40%"
+          />
+          <input
+            type="button"
+            class="button"
+            onclick="updateTeamsize()"
+            value="Update team size"
+          />
         </form>
         <div class="generate-reports">
           <button class="button" onclick="experienceReport()">
@@ -38,33 +50,7 @@
           </button>
         </div>
       </article>
-      <article
-        class="reports team-container"
-        id="experience-report-container"
-      ></article>
-    </article>
-
-    <article class="team-container">
-      <section id="1">
-        <header>Team 1</header>
-        <article id="content1"></article>
-      </section>
-      <section id="2">
-        <header>Team 2</header>
-        <article id="content2"></article>
-      </section>
-      <section id="3">
-        <header>Team 3</header>
-        <article id="content3"></article>
-      </section>
-      <section id="4">
-        <header>Team 4</header>
-        <article id="content4"></article>
-      </section>
-      <section id="5">
-        <header>Team 5</header>
-        <article id="content5"></article>
-      </section>
+      <article class="reports team-container" id="report-container"></article>
     </article>
   </body>
 </html>
