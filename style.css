@@ -1,0 +1,56 @@
+:root {
+  --border: 1px solid #3e3e3e;
+  --border-radius: 4px;
+  --app-spacer: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.team-container {
+  margin: var(--app-spacer);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+}
+
+.team-container article {
+  border: var(--border);
+  padding: 2px;
+}
+
+.role {
+  font-size: 0.6em;
+  border: 1px solid #959595;
+  padding: 3px;
+  border-radius: var(--border-radius);
+}
+
+.people {
+  background: #e8e8e8;
+  margin: 3px;
+  padding: 5px;
+  border: 1px solid #828282;
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: space-between;
+}
+
+.people.female {
+  background: #f7ddeb;
+}
+
+header {
+  padding: 10px;
+  background: #3e3e3e;
+  color: #eee;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}

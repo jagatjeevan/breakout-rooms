@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zoom breakout rooms with diversity</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+    <script src="./utility.js"></script>
+    <script src="./app.js" defer="defer"></script>
+    <script src="./split-teams.js" defer="defer"></script>
+  </head>
+  <body>
+    <fieldset class="container">
+      <legend>Upload data and generate groups</legend>
+      <form enctype="multipart/form-data">
+        <input id="upload" type="file" name="files[]" />
+      </form>
+      <button onclick="experienceReport()">Experience Report</button>
+    </fieldset>
+
+    <article class="team-container">
+      <section id="1">
+        <header>Team 1</header>
+        <article id="content1"></article>
+      </section>
+      <section id="2">
+        <header>Team 2</header>
+        <article id="content2"></article>
+      </section>
+      <section id="3">
+        <header>Team 3</header>
+        <article id="content3"></article>
+      </section>
+      <section id="4">
+        <header>Team 4</header>
+        <article id="content4"></article>
+      </section>
+      <section id="5">
+        <header>Team 5</header>
+        <article id="content5"></article>
+      </section>
+    </article>
+  </body>
+</html>
