@@ -8,11 +8,36 @@ var mapper = {
   "Lead Consultant": "Lead Con",
 };
 
+var LocationMapper = {
+  Chennai: "Chn",
+  Hyderabad: "Hyd",
+  "Gurgaon - DLF SEZ": "GGN",
+  Mumbai: "Mum",
+  "Bangalore - Mahadevapura": "MDP",
+  Pune: "Pune",
+  Coimbatore: "CBE",
+};
+var showLocation = false;
+var aggregatedPeople = [];
+
 function pass(json_object) {
   original = currentState = json_object;
 }
 
-function displayIntoTeams(arr) {
+function clearTeam() {
+  for (let i = 0; i < teamSize; i++) {
+    $(`#${i + 1} article`).html("");
+  }
+}
+
+function toggleLocation() {
+  showLocation = !showLocation;
+  clearTeam();
+  displayIntoTeams();
+}
+
+function displayIntoTeams() {
+  const arr = aggregatedPeople;
   for (let i = 0; i < arr.length; i++) {
     let selector;
     const teamNumber = i % teamSize;
@@ -25,10 +50,19 @@ function displayIntoTeams(arr) {
       arr[i].Gender.toLowerCase() === "Female".toLowerCase()
         ? "people female"
         : "people";
+
+    const location = showLocation
+      ? `<span  class="role-location">${
+          LocationMapper[arr[i].Location]
+        }</span>, `
+      : "";
     const html = `
     <div class="${classes}">
       <span>${arr[i].Name}</span>
-      <span class="role">${mapper[arr[i].Role]}</span>
+      <div>
+        ${location}
+        <span class="role-location">${mapper[arr[i].Role]}</span>
+      </div>
     </div>
     `;
     $(`#${teamNumber + 1} article`).append(html);
@@ -44,8 +78,7 @@ function genderDiversity() {
   });
 }
 
-function experienceReport() {
-  genderDiversity();
+function roleDiversity() {
   const roles = [];
   const seggregateWithRoles = {};
   currentState.forEach((item) => {
@@ -56,11 +89,16 @@ function experienceReport() {
       seggregateWithRoles[item.Role].push(item);
     }
   });
-  const aggregatedPeople = [
+  aggregatedPeople = [
     ...femalesArr,
     ...seggregateWithRoles["Consultant"],
     ...seggregateWithRoles["Senior Consultant"],
     ...seggregateWithRoles["Lead Consultant"],
   ];
-  displayIntoTeams(aggregatedPeople);
+}
+
+function experienceReport() {
+  genderDiversity();
+  roleDiversity();
+  displayIntoTeams();
 }

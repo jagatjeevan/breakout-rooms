@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zoom breakout rooms with diversity</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
@@ -13,13 +17,32 @@
     <script src="./split-teams.js" defer="defer"></script>
   </head>
   <body>
-    <fieldset class="container">
-      <legend>Upload data and generate groups</legend>
-      <form enctype="multipart/form-data">
-        <input id="upload" type="file" name="files[]" />
-      </form>
-      <button onclick="experienceReport()">Experience Report</button>
-    </fieldset>
+    <article class="container">
+      <header class="app-header">Breakout rooms</header>
+      <article class="upload-data-container">
+        <form enctype="multipart/form-data">
+          <input
+            id="upload"
+            type="file"
+            class="button"
+            name="files[]"
+            style="width: 90%"
+          />
+        </form>
+        <div class="generate-reports">
+          <button class="button" onclick="experienceReport()">
+            Experience Report
+          </button>
+          <button class="button" onclick="toggleLocation()">
+            Toggle location
+          </button>
+        </div>
+      </article>
+      <article
+        class="reports team-container"
+        id="experience-report-container"
+      ></article>
+    </article>
 
     <article class="team-container">
       <section id="1">

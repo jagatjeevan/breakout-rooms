@@ -1,17 +1,58 @@
 :root {
-  --border: 1px solid #3e3e3e;
+  --border: 1px solid #c887fb;
   --border-radius: 4px;
   --app-spacer: 10px;
+  --primary-color: #870de8;
+  --header-color: #eee;
+  --female-color: #ff78b8;
+  --male-color: #878ef5;
 }
 
 * {
   box-sizing: border-box;
+  font-family: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+}
+
+.button {
+  padding: 10px 20px;
+  background: var(--primary-color);
+  border: 0;
+  color: #fff;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .container {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
+}
+
+.app-header {
+  padding: calc(var(--app-spacer) * 2);
+  background: var(--primary-color);
+  color: white;
+  font-size: 21px;
+}
+
+.upload-data-container {
+  padding: calc(var(--app-spacer) * 2);
+  display: grid;
+  grid-template-columns: 0.3fr 0.7fr;
+  grid-gap: var(--app-spacer);
+}
+
+.reports {
+  margin-bottom: calc(var(--app-spacer) * 2);
 }
 
 .team-container {
@@ -26,31 +67,29 @@
   padding: 2px;
 }
 
-.role {
-  font-size: 0.6em;
-  border: 1px solid #959595;
-  padding: 3px;
-  border-radius: var(--border-radius);
+.role-location {
+  font-size: 0.8em;
 }
 
 .people {
-  background: #e8e8e8;
+  background: var(--male-color);
   margin: 3px;
   padding: 5px;
   border: 1px solid #828282;
   border-radius: var(--border-radius);
   display: flex;
   justify-content: space-between;
+  font-size: 14px;
 }
 
 .people.female {
-  background: #f7ddeb;
+  background: var(--female-color);
 }
 
-header {
+.team-container header {
   padding: 10px;
-  background: #3e3e3e;
-  color: #eee;
+  background: var(--primary-color);
+  color: var(--header-color);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
 }
