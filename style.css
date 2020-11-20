@@ -93,3 +93,7 @@ body {
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
 }
+
+.todos {
+  padding: calc(var(--app-spacer) * 2);
+}

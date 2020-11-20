@@ -2,6 +2,7 @@ var original = [],
   currentState = [];
 var teamSize = 5;
 var femalesArr = [];
+var othersArr = [];
 var mapper = {
   Consultant: "Con",
   "Senior Consultant": "Sr. Con",
@@ -80,7 +81,7 @@ function displayIntoTeams() {
       <span>${arr[i].Name}</span>
       <div>
         ${location}
-        <span class="role-location">${mapper[arr[i].Role]}</span>
+        <span class="role-location">${mapper[arr[i].Grade]}</span>
       </div>
     </div>
     `;
@@ -101,11 +102,11 @@ function roleDiversity() {
   const roles = [];
   const seggregateWithRoles = {};
   currentState.forEach((item) => {
-    if (!roles.includes(item.Role)) {
-      roles.push(item.Role);
-      seggregateWithRoles[item.Role] = [item];
+    if (!roles.includes(item.Grade)) {
+      roles.push(item.Grade);
+      seggregateWithRoles[item.Grade] = [item];
     } else {
-      seggregateWithRoles[item.Role].push(item);
+      seggregateWithRoles[item.Grade].push(item);
     }
   });
   aggregatedPeople = [
