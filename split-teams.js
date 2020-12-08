@@ -4,7 +4,10 @@ var teamSize = 5;
 var femalesArr = [];
 var othersArr = [];
 var mapper = {
+  Associate: "Associate",
+  "Senior Associate": "Sr. Associate",
   Consultant: "Con",
+  "Consultant Grad": "Con Grad",
   "Senior Consultant": "Sr. Con",
   "Lead Consultant": "Lead Con",
 };
