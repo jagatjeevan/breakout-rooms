@@ -114,9 +114,12 @@ function roleDiversity() {
   });
   aggregatedPeople = [
     ...femalesArr,
+    ...seggregateWithRoles["Associate"],
     ...seggregateWithRoles["Consultant"],
     ...seggregateWithRoles["Senior Consultant"],
+    ...seggregateWithRoles["Senior Associate"],
     ...seggregateWithRoles["Lead Consultant"],
+    ...seggregateWithRoles["Principal Consultant"],
   ];
 }
 
