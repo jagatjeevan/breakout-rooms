@@ -80,7 +80,7 @@ function displayIntoTeams() {
         }</span>, `
       : "";
     const html = `
-    <div class="${classes}">
+    <div class="${classes}" data=${encodeURIComponent(JSON.stringify(arr[i]))}>
       <span>${arr[i].Name}</span>
       <div>
         ${location}
@@ -123,8 +123,30 @@ function roleDiversity() {
   ];
 }
 
+function copyToClipboard(value) {
+  var textArea = document.createElement("textarea");
+  textArea.value = `${value.Name}\t${value.Gender}\t${value.Role}\t${value.Grade}\t${value.Location}`;
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textArea);
+}
+
+function attachEventHandler() {
+  document.querySelectorAll("#report-container .people").forEach((docElem) =>
+    docElem.addEventListener("click", function (e) {
+      var value = JSON.parse(
+        decodeURIComponent(e.currentTarget.getAttribute("data"))
+      );
+      copyToClipboard(value);
+    })
+  );
+}
+
 function experienceReport() {
   genderDiversity();
   roleDiversity();
   displayIntoTeams();
+  setTimeout(attachEventHandler, 250);
 }
