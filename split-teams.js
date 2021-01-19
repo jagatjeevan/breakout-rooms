@@ -101,6 +101,11 @@ function genderDiversity() {
   });
 }
 
+function getPeople(arr) {
+  if (arr) return arr;
+  return [];
+}
+
 function roleDiversity() {
   const roles = [];
   const seggregateWithRoles = {};
@@ -114,12 +119,12 @@ function roleDiversity() {
   });
   aggregatedPeople = [
     ...femalesArr,
-    ...seggregateWithRoles["Associate"],
-    ...seggregateWithRoles["Consultant"],
-    ...seggregateWithRoles["Senior Consultant"],
-    ...seggregateWithRoles["Senior Associate"],
-    ...seggregateWithRoles["Lead Consultant"],
-    ...seggregateWithRoles["Principal Consultant"],
+    ...getPeople(seggregateWithRoles["Associate"]),
+    ...getPeople(seggregateWithRoles["Consultant"]),
+    ...getPeople(seggregateWithRoles["Senior Consultant"]),
+    ...getPeople(seggregateWithRoles["Senior Associate"]),
+    ...getPeople(seggregateWithRoles["Lead Consultant"]),
+    ...getPeople(seggregateWithRoles["Principal Consultant"]),
   ];
 }
 
