@@ -4,12 +4,15 @@ var teamSize = 5;
 var femalesArr = [];
 var othersArr = [];
 var mapper = {
-  Associate: "Associate",
-  "Senior Associate": "Sr. Associate",
+  Associate: "Assc",
+  "Senior Associate": "Sr. Assc",
+  "Lead Associate": "Lead Assc.",
+  "Principal Associate": "Principal Assc.",
   Consultant: "Con",
   "Consultant Grad": "Con Grad",
   "Senior Consultant": "Sr. Con",
   "Lead Consultant": "Lead Con",
+  "Principal Consultant": "Principal Con.",
 };
 
 var LocationMapper = {
@@ -121,10 +124,13 @@ function roleDiversity() {
     ...femalesArr,
     ...getPeople(seggregateWithRoles["Associate"]),
     ...getPeople(seggregateWithRoles["Consultant"]),
+    ...getPeople(seggregateWithRoles["Consultant Grad"]),
     ...getPeople(seggregateWithRoles["Senior Consultant"]),
     ...getPeople(seggregateWithRoles["Senior Associate"]),
     ...getPeople(seggregateWithRoles["Lead Consultant"]),
+    ...getPeople(seggregateWithRoles["Lead Associate"]),
     ...getPeople(seggregateWithRoles["Principal Consultant"]),
+    ...getPeople(seggregateWithRoles["Principal Associate"]),
   ];
 }
 
