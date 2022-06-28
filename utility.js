@@ -40,3 +40,18 @@ var ExcelToJSON = function () {
     reader.readAsBinaryString(file);
   };
 };
+
+function copyToClipboard(commaSeparatedValue) {
+  var textArea = document.createElement("textarea");
+  textArea.value = commaSeparatedValue;
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textArea);
+}
+
+function showNotification(text) {
+  
+}
+

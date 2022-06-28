@@ -52,12 +52,24 @@ function toggleRole() {
   displayIntoTeams();
 }
 
+function copyNamesForTeamNumber(i) {
+  let values = "";
+  const idValue = `content${i}`;
+  document.querySelectorAll(`#${idValue} .people`).forEach((item, index) => {
+    values += `${item.innerText}\n`;
+  });
+  copyToClipboard(values);
+}
+
 function generateTeams() {
   let html = "";
   for (let i = 0; i < teamSize; i++) {
     html += `
     <section id="${i + 1}">
-        <header>Team ${i + 1}</header>
+        <header>Team 
+        ${i + 1}
+        <button class="button header-button button-secondary" onClick=copyNamesForTeamNumber(${i+1})>Copy All Names</button>
+        </header>
         <article id="content${i + 1}"></article>
       </section>
     `;
@@ -145,23 +157,14 @@ function roleDiversity() {
   ];
 }
 
-function copyToClipboard(value) {
-  var textArea = document.createElement("textarea");
-  textArea.value = `${value.Name}\t${value.Gender}\t${value.Role}\t${value.Grade}\t${value.Location}`;
-  document.body.appendChild(textArea);
-  textArea.focus();
-  textArea.select();
-  document.execCommand("copy");
-  document.body.removeChild(textArea);
-}
-
 function attachEventHandler() {
   document.querySelectorAll("#report-container .people").forEach((docElem) =>
     docElem.addEventListener("click", function (e) {
       var value = JSON.parse(
         decodeURIComponent(e.currentTarget.getAttribute("data"))
       );
-      copyToClipboard(value);
+      const textValue = `${value.Name}\t${value.Gender}\t${value.Role}\t${value.Grade}\t${value.Location}`;
+      copyToClipboard(textValue);
     })
   );
 }

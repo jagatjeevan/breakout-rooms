@@ -3,7 +3,9 @@
   --border-radius: 4px;
   --app-spacer: 10px;
   --primary-color: #870de8;
+  --secondary-color: rgba(209, 209, 80, 0.726);
   --header-color: #eee;
+  --header-secondary-color: #333;
   --female-color: #ff78b8;
   --male-color: #878ef5;
 }
@@ -21,7 +23,7 @@ body {
 }
 
 .button {
-  padding: 10px 20px;
+  padding: var(--app-spacer) calc(var(--app-spacer) * 2);
   background: var(--primary-color);
   border: 0;
   color: #fff;
@@ -29,6 +31,17 @@ body {
   margin-right: 10px;
   margin-bottom: 10px;
   cursor: pointer;
+}
+
+.header-button {
+  padding: calc(var(--app-spacer) / 2) var(--app-spacer);
+  margin-right: 0;
+  margin-bottom: 0;
+} 
+
+.button-secondary {
+  background-color: var(--secondary-color);
+  color: var(--header-secondary-color);
 }
 
 .container {
@@ -92,6 +105,8 @@ body {
   color: var(--header-color);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
+  display: flex;
+  justify-content: space-between;
 }
 
 .todos {
