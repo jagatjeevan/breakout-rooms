@@ -25,6 +25,7 @@ var LocationMapper = {
   Coimbatore: "CBE",
 };
 var showLocation = false;
+var showRole = false;
 var aggregatedPeople = [];
 
 function pass(json_object) {
@@ -43,6 +44,11 @@ function clearTeam() {
 
 function toggleLocation() {
   showLocation = !showLocation;
+  displayIntoTeams();
+}
+
+function toggleRole() {
+  showRole = !showRole;
   displayIntoTeams();
 }
 
@@ -82,12 +88,17 @@ function displayIntoTeams() {
           LocationMapper[arr[i].Location]
         }</span>, `
       : "";
+
+    const role = showRole
+      ? `<span class="role-location">${mapper[arr[i].Grade]}</span> `
+      : "";
+    
     const html = `
     <div class="${classes}" data=${encodeURIComponent(JSON.stringify(arr[i]))}>
       <span>${arr[i].Name}</span>
       <div>
         ${location}
-        <span class="role-location">${mapper[arr[i].Grade]}</span>
+        ${role}
       </div>
     </div>
     `;
