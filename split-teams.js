@@ -59,6 +59,7 @@ function copyNamesForTeamNumber(i) {
     values += `${item.innerText}\n`;
   });
   copyToClipboard(values);
+  showNotification(`All names for team ${i}copied`);
 }
 
 function generateTeams() {
@@ -165,6 +166,7 @@ function attachEventHandler() {
       );
       const textValue = `${value.Name}\t${value.Gender}\t${value.Role}\t${value.Grade}\t${value.Location}`;
       copyToClipboard(textValue);
+      showNotification(`All details for ${value.Name} copied`);
     })
   );
 }

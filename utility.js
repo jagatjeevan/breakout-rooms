@@ -12,6 +12,17 @@ var log = function (message = "", type = "log") {
   }
 };
 
+function hideNotification() {
+  document.querySelector("#notification-content").innerHTML = "";
+  document.querySelector("#notification").classList.add("hide");
+}
+
+function showNotification(text) {
+  document.querySelector("#notification-content").innerHTML = text;
+  document.querySelector("#notification").classList.remove("hide");
+  setTimeout(hideNotification, 3000);
+}
+
 var ExcelToJSON = function () {
   this.parseExcel = function (file) {
     var reader = new FileReader();
@@ -31,10 +42,12 @@ var ExcelToJSON = function () {
         // jQuery("#xlx_json").val(json_object);
         pass(JSON.parse(json_object));
       });
+      showNotification("excel uploaded successfully");
     };
 
     reader.onerror = function (ex) {
       console.log(ex);
+      showNotification(ex);
     };
 
     reader.readAsBinaryString(file);
@@ -50,8 +63,3 @@ function copyToClipboard(commaSeparatedValue) {
   document.execCommand("copy");
   document.body.removeChild(textArea);
 }
-
-function showNotification(text) {
-  
-}
-
